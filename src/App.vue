@@ -37,6 +37,7 @@
 
                     </router-view>
 
+                    <Footer/>
                 </div>
 
             </div>
@@ -48,9 +49,10 @@
 
 <script>
 
+    import Footer from "@/components/Footer";
     export default {
         name: 'App',
-        components: {}
+        components: {Footer}
     }
 </script>
 
