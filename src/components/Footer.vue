@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full text-center border-t border-grey p-4 pin-b mt-4">
+    <div class="w-full text-center border-t border-grey p-4 pin-b mt-6">
         <div class="flex flex-row">
             <p class="w-full text-left text-gray-500">
                 &copy; 2020

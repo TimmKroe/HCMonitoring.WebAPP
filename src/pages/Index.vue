@@ -1,8 +1,7 @@
 <template>
     <div>
-        <div class="mb-4">
-            <h2 class="text-4xl">Dashboard</h2>
-        </div>
+
+        <PageHeader title="Dashboard" />
 
 
         <!-- Content goes here -->
@@ -10,7 +9,7 @@
             <div class="bg-white shadow-lg rounded-md p-5 m-2 flex items-center justify-between border-b">
                 <span class="text-2xl">
                     {{ server.name }}
-                    <span class="text-xs inline-flex items-center font-bold leading-sm uppercase px-3 py-1 rounded-full bg-white text-gray-700 border align-middle">{{ server.server_type }}</span>
+                    <WhiteTagComponent :server_type="server.server_type" />
                 </span>
 
                 <span v-if="server.status === 'running'" class="float-right py-1 px-3 text-sm text-white font-semibold bg-green-500 rounded-full">{{ server.status }}</span>
@@ -27,9 +26,11 @@
 </template>
 
 <script>
+    import WhiteTagComponent from "@/components/tags/ServerTypeTag";
+    import PageHeader from "@/components/PageHeader";
     export default {
         name: "Index",
-        components: {},
+        components: {PageHeader, WhiteTagComponent},
         data() {
             return {
                 servers: [
