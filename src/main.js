@@ -12,6 +12,8 @@ import SrvManagementPage from "@/pages/SrvManagement";
 import SingleServerManagementPage from "@/pages/SingleServerManagement";
 import SingleServerMonitoringPage from "@/pages/SingleServerMonitoring";
 import AboutPage from "@/pages/About";
+import BackupsPage from "@/pages/Backups";
+import SnapshotsPage from "@/pages/Snapshots";
 
 import ErrorSiteNotFoundPage from "@/pages/SiteNotFound";
 
@@ -22,6 +24,8 @@ const routes = [
   { path: '/', component: IndexPage },
   { path: '/about', exact: true, component: AboutPage },
   { path: '/servers/:id', exact: true, component: SingleServerMonitoringPage },
+  { path: '/backups', exact: true, component: BackupsPage },
+  { path: '/snapshots', exact: true, component: SnapshotsPage },
   { path: '/org-management', exact: true, component: OrgManagementPage },
   { path: '/srv-management', exact: true, component: SrvManagementPage },
   { path: '/srv-management/:id', exact: true, component: SingleServerManagementPage },
