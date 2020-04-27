@@ -25,15 +25,13 @@
                             <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                                href="/">Dashboard</a>
                             <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                               href="/">Servers</a>
-                            <div class="ml-6">
+                               >Servers</a>
+                            <div class="ml-6" v-for="(server, i) in 10" :key="i">
                                 <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                                   :href="'/servers/'">Servers</a>
+                                   :href="'/servers/d'">Servers</a>
                             </div>
                             <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                                href="/about">About</a>
-                            <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                               href="#">Settings</a>
                         </div>
 
 
@@ -43,7 +41,7 @@
                             <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                                href="/srv-management">SRV Management</a>
                             <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                               href="/">Login / Logout</a>
+                               href="/login">Login / Logout</a>
                         </div>
                     </div>
                 </nav>
@@ -57,7 +55,7 @@
 
                 <div class="absolute top-0 right-0 p-2 flex flex-row font-bold">
 
-                    <div v-if="authenticated">
+                    <div v-if="Authenticated">
                         <div class="inline-block">
                             <img class="rounded-full w-10 align-middle" src="https://files.timmkroe.de/dreams.png" alt="profile-pic">
                         </div>
@@ -65,7 +63,7 @@
                             <span class="px-2 align-middle">Username</span>
                         </div>
                     </div>
-                    <div v-if="!authenticated">
+                    <div v-if="!Authenticated">
                         <div class="inline-block py-1">
                             <span class="px-2 align-middle">
                                 <a href="/login" class="inline-block">Login</a>
@@ -92,16 +90,27 @@
 </template>
 
 <script>
-
+    import { mapState, mapGetters } from 'vuex';
     import Footer from "@/components/Footer";
 
     export default {
         name: 'App',
         components: {Footer},
+        computed: {
+            ...mapState({
+                Authenticated: state => state.application.authenticated
+            }),
+
+            ...mapGetters('application', [
+                'Authenticated'
+            ])
+        },
+        created () {
+            this.$store.dispatch('application/getAuthenticated')
+        },
         data() {
             return {
                 open: false,
-                authenticated: false,
             }
         },
         methods: {

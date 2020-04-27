@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import '@/assets/css/tailwind.css';
 import VueRouter from "vue-router";
+import store from './store'
 
 // Pages
 import IndexPage from '@/pages/Index';
@@ -11,6 +12,8 @@ import SrvManagementPage from "@/pages/SrvManagement";
 import SingleServerManagementPage from "@/pages/SingleServerManagement";
 import SingleServerMonitoringPage from "@/pages/SingleServerMonitoring";
 import AboutPage from "@/pages/About";
+
+import ErrorSiteNotFoundPage from "@/pages/SiteNotFound";
 
 Vue.config.productionTip = false
 Vue.use(VueRouter);
@@ -23,6 +26,7 @@ const routes = [
   { path: '/srv-management', exact: true, component: SrvManagementPage },
   { path: '/srv-management/:id', exact: true, component: SingleServerManagementPage },
   { path: '/login', exact: true, component: LoginPage },
+  { path: '*', component: ErrorSiteNotFoundPage },
 ];
 
 const router = new VueRouter({
@@ -33,4 +37,5 @@ const router = new VueRouter({
 new Vue({
   render: h => h(App),
   router,
+  store,
 }).$mount('#app')
