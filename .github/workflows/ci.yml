@@ -49,12 +49,15 @@ jobs:
     - run: npm test
   
   deploy:
-    name: Deploy
     runs-on: ubuntu-latest
+
     steps:
-      - uses: azure/webapps-deploy@v2
-      - name: Deploy to Azure
-      with: 
-        app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+    - uses: actions/checkout@master
+
+    - name: 'Deploy to Azure Web App'
+      uses: azure/webapps-deploy@v1
+      with:
+        app-name: 'hcmonitoring'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_01182896f6dd4fd7a5b41f586969d93a }}
+        package: .
