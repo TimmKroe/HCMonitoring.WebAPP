@@ -9,28 +9,31 @@ on:
   pull_request:
     branches: [ master ]
 
-env:
-  AZURE_WEBAPP_NAME: hcmonitoring    # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '12.x'                # set this to the node version to use
-
 jobs:
-  build:
-    name: Build
+  build-and-deploy:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [12.x]
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    - uses: actions/checkout@master
+
+    - name: Set up Node.js version
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm run build --if-present
+        node-version: '12.x'
+
+    - name: npm install, build, and test
+      run: |
+        npm install
+        npm run build --if-present
+        npm run test --if-present
+
+    - name: 'Deploy to Azure Web App'
+      uses: azure/webapps-deploy@v1
+      with:
+        app-name: 'hcmonitoring'
+        slot-name: 'production'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_01182896f6dd4fd7a5b41f586969d93a }}
+        package: .
 
   test:
     name: Test
@@ -47,17 +50,3 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm test
-  
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@master
-
-    - name: 'Deploy to Azure Web App'
-      uses: azure/webapps-deploy@v1
-      with:
-        app-name: 'hcmonitoring'
-        slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_01182896f6dd4fd7a5b41f586969d93a }}
-        package: .
