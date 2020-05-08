@@ -57,7 +57,7 @@
                     </div>
                 </div>
 
-                <div class="absolute top-0 right-0 p-2 flex flex-row font-bold">
+                <div class="absolute xl:top-0 right-0 p-2 flex flex-row font-bold">
 
                     <div v-if="Authenticated">
                         <div class="inline-block">
