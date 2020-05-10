@@ -3,7 +3,7 @@
 
         <PageHeader title="About"/>
 
-        <div class="bg-white shadow-lg p-6 rounded">
+        <div class="bg-white shadow-lg p-6 rounded-md">
             <div class="pb-4">
                 <h3 class="text-2xl border-b font-semibold">Description</h3>
                 <div class="pl-2">
@@ -33,7 +33,7 @@
                 </div>
             </div>
 
-            <div class="flex flex-row">
+            <div class="flex md:flex-row flex-col">
                 <div class="pb-4 pr-4 w-full">
                     <h3 class="text-2xl border-b font-semibold">Statistics / Performance / System</h3>
                     <div class="pl-2">
