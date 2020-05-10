@@ -6,7 +6,7 @@
             <!-- Sidebar -->
             <SidebarNavigation/>
             <!-- Content -->
-            <div class="flex flex-col bg-gray-200 w-full">
+            <div class="flex flex-col bg-gray-200 w-full md:ml-64">
                 <div class="absolute flex flex-row p-2 font-bold">
                     <div class="inline-block">
                         <span class="px-2 align-middle">Org XYZ</span>
