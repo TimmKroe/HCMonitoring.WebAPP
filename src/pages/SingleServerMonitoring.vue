@@ -108,7 +108,7 @@
                 <div class="font-semibold mb-1">
                     <h4 class="text-xl">Backups</h4>
                 </div>
-                <div class="h-64 overflow-auto">
+                <div class="h-64 md:h-20 overflow-auto">
                     <ul class="list-none pl-4 align-middle">
                         <li v-for="(item, i) in 10" :key="i">
                             <p><Link :link="'/backups/id'" :text="'Backup 2020-04-20T14:06:37.011932+00:00'" /></p>
@@ -122,7 +122,7 @@
                 <div class="font-semibold mb-1">
                     <h4 class="text-xl">Snapshots</h4>
                 </div>
-                <div class="h-64 overflow-auto">
+                <div class="h-64 md:h-20 overflow-auto">
                     <ul class="list-none pl-4 align-middle">
                         <li v-for="(item, i) in 10" :key="i">
                             <p><Link :link="'/snapshots/id'" :text="'Backup 2020-04-20T14:06:37.011932+00:00'" /></p>
