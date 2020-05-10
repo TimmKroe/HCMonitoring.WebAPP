@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="">
 
         <PageHeader title="Server XYZ" :server-status-button="true" :server-status-button-status="'running'"/>
 
@@ -7,9 +7,9 @@
         <ServerTypeTag server_type="Ubuntu 18.04"/>
         <ServerTypeTag server_type="fsn1-dc9"/>
 
-        <div class="flex flex-row">
+        <div class="flex md:flex-row flex-col">
             <!--General -->
-            <div class="bg-white p-4 rounded shadow-lg w-2/3 m-2">
+            <div class="bg-white p-4  rounded-md shadow-lg md:w-2/3 m-2">
                 <div class="font-semibold mb-1">
                     <h4 class="text-xl">General</h4>
                 </div>
@@ -32,7 +32,7 @@
             </div>
 
             <!-- Global -->
-            <div class="bg-white p-6 rounded shadow-lg w-1/3 m-2">
+            <div class="bg-white p-6 rounded-md shadow-lg md:w-1/3 m-2">
                 <div class="font-semibold mb-1">
                     <h4 class="text-xl">Global</h4>
                 </div>
@@ -53,9 +53,9 @@
 
         </div>
 
-        <div class="flex flex-row">
+        <div class="flex md:flex-row flex-col">
             <!--General -->
-            <div class="bg-white p-4 rounded shadow-lg w-1/2 m-2">
+            <div class="bg-white p-4 rounded-md shadow-lg md:w-1/2 m-2">
                 <div class="font-semibold mb-1">
                     <h4 class="text-xl">Network</h4>
                 </div>
@@ -78,7 +78,7 @@
             </div>
 
             <!-- Global -->
-            <div class="bg-white p-6 rounded shadow-lg w-1/2 m-2">
+            <div class="bg-white p-6 rounded-md shadow-lg md:w-1/2 m-2">
                 <div class="font-semibold mb-1">
                     <h4 class="text-xl">Datacenter</h4>
                 </div>
@@ -102,13 +102,13 @@
 
         </div>
 
-        <div class="flex flex-row">
+        <div class="flex md:flex-row flex-col">
             <!--Backups -->
-            <div class="bg-white p-4 rounded shadow-lg w-1/2 m-2">
+            <div class="bg-white p-4 rounded-md shadow-lg md:w-1/2 m-2">
                 <div class="font-semibold mb-1">
                     <h4 class="text-xl">Backups</h4>
                 </div>
-                <div class="h-20 overflow-auto">
+                <div class="h-64 overflow-auto">
                     <ul class="list-none pl-4 align-middle">
                         <li v-for="(item, i) in 10" :key="i">
                             <p><Link :link="'/backups/id'" :text="'Backup 2020-04-20T14:06:37.011932+00:00'" /></p>
@@ -118,11 +118,11 @@
             </div>
 
             <!--Snapshots -->
-            <div class="bg-white p-4 rounded shadow-lg w-1/2 m-2">
+            <div class="bg-white p-4 rounded-md shadow-lg md:w-1/2 m-2">
                 <div class="font-semibold mb-1">
                     <h4 class="text-xl">Snapshots</h4>
                 </div>
-                <div class="h-20 overflow-auto">
+                <div class="h-64 overflow-auto">
                     <ul class="list-none pl-4 align-middle">
                         <li v-for="(item, i) in 10" :key="i">
                             <p><Link :link="'/snapshots/id'" :text="'Backup 2020-04-20T14:06:37.011932+00:00'" /></p>
