@@ -35,8 +35,9 @@
                 </div>
 
                 <div class="absolute bottom-0 right-0">
-                    <Alert class="mr-8 w-2/4" status="green" statustype="success" msg="sdadfaösjdfakjsdff"/>
-                    <Alert class="mr-8 w-2/4" status="green" statustype="success" msg="sdadfaösjdfakjsdff"/>
+                    <div v-for="(alert, i) in this.notifications" :key="i" class="w-full pr-2">
+                        <Alert :title="alert.title" :status="alert.status" :statustype="alert.statustype" :msg="alert.msg"/>
+                    </div>
                 </div>
 
 
@@ -80,7 +81,11 @@
         data() {
             return {
                 open: false,
-                notifications: []
+                notifications: [
+                    {title: 'Successfully updated', statustype: 'success', msg: 'The site was successfully reloaded'},
+                    {title: 'Successfully updated', statustype: 'danger', msg: 'The site was successfully reloaded'},
+                    {title: 'Successfully updated', statustype: 'warning', msg: 'The site was successfully reloaded'},
+                ]
             }
         },
         methods: {

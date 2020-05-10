@@ -1,7 +1,7 @@
 <template>
-    <div class="shadow-xl rounded-lg bg-white mx-auto m-8 p-4 notification-box flex">
+    <div class="shadow-xl rounded-lg bg-white m-4 mx-auto max-w-md p-4 notification-box flex">
         <div class="pr-2">
-            <svg
+            <svg v-if="statustype === 'danger'"
                     class="fill-current text-red-600"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -13,7 +13,7 @@
                         d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-3.54-4.54a5 5 0 0 1 7.08 0 1 1 0 0 1-1.42 1.42 3 3 0 0 0-4.24 0 1 1 0 0 1-1.42-1.42zM9 11a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm6 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
                 />
             </svg>
-            <svg
+            <svg v-if="statustype === 'success'"
                     class="fill-current text-green-600"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -25,7 +25,7 @@
                         d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-3.54-4.46a1 1 0 0 1 1.42-1.42 3 3 0 0 0 4.24 0 1 1 0 0 1 1.42 1.42 5 5 0 0 1-7.08 0zM9 11a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm6 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
                 />
             </svg>
-            <svg
+            <svg v-if="statustype === 'warning'"
                     class="fill-current text-orange-600"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -40,7 +40,7 @@
         </div>
         <div>
             <div class="text-sm pb-2">
-                Notification Title
+                {{ title }}
                 <span class="float-right">
               <svg
                       class="fill-current text-gray-600"
@@ -57,8 +57,7 @@
             </span>
             </div>
             <div class="text-sm text-gray-600  tracking-tight ">
-                I will never close automatically. This is a purposely very very long
-                description that has many many characters and words.
+                {{ msg }}
             </div>
         </div>
     </div>
@@ -67,7 +66,7 @@
 <script>
     export default {
         name: 'Alert',
-        props: ["status", "statustype", "msg"]
+        props: ["statustype", "title", "msg"]
     }
 </script>
 
