@@ -77,7 +77,7 @@
 
 
                 </div>
-                <div class="container mx-auto mt-20 md:p-10">
+                <div class="container mx-auto mt-20 px-2 md:p-10">
 
                     <router-view>
 
