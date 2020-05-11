@@ -5,7 +5,7 @@
 
 
         <div class="flex flex-col">
-            <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 pb-5">
+            <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 pb-5 hidden md:block">
                 <div class="align-middle inline-block min-w-full shadow-lg overflow-hidden sm:rounded-lg border-b border-gray-200">
                     <table class="min-w-full">
                         <thead>
@@ -32,39 +32,18 @@
                         </tr>
                         </thead>
                         <tbody class="bg-white">
-                        <tr>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                <div class="flex items-center">
-                                    <div class="ml-4">
-                                        <div class="text-sm leading-5 font-medium text-gray-900">Server Name</div>
-                                        <div class="text-sm leading-5 text-gray-500">Ubuntu 16.04 Standard 64 bit</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                <div class="text-sm leading-5 text-gray-900">CPX11</div>
-                                <div class="text-sm leading-5 text-gray-500">fsn1-dc8</div>
-                            </td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                running
-                              </span>
-                            </td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                                locked
-                            </td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                                23 GB / 20 TB
-                            </td>
-                            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                                Yes
-                            </td>
-                            <td class="px-6 py-4 whitespace-no-wrap text-right border-b border-gray-200 text-sm leading-5 font-medium">
-                                <a class="text-indigo-600 hover:text-indigo-900" href="#">Edit</a>
-                            </td>
-                        </tr>
+                                <ServerTableEntry v-for="(server, i) in 10" :key="i" :data="server"/>
                         </tbody>
                     </table>
+                </div>
+            </div>
+
+
+            <div v-for="(backup, i) in 10" :key="i" class="md:hidden">
+                <div class="bg-white shadow-lg rounded-md p-5 m-2 flex items-center justify-between border-b">
+                <span class="text-2xl">
+                    test
+                </span>
                 </div>
             </div>
         </div>
@@ -74,9 +53,10 @@
 
 <script>
     import PageHeader from "@/components/PageHeader";
+    import ServerTableEntry from "@/pages/serverManagement/ServerTableEntry";
     export default {
         name: "SrvManagement",
-        components: {PageHeader}
+        components: {ServerTableEntry, PageHeader}
     }
 </script>
 

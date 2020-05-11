@@ -1,24 +1,25 @@
 # hcmonitoring.webapp
+Hetzner Cloud Monitoring is an all in one Solution for a public status page or an internal basic monitoring of servers.
+It is built on top of the Hetzner Cloud API, has a VueJS Frontend with TailwindCSS and a C# .NET Core Backend.
 
-## Project setup
-```
-npm install
-```
+The API Backend is [here](https://github.com/TimmKroe/HCMonitoring.WebAPI).
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Installation
+TODO
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Support
+The first thing you should do if you have any issue with the software is looking into the issues tab.
+If there is no solution to your problem create your own issue.
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Contributing
+Expected workflow is: Fork -> Patch -> Push -> Pull Request
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Project Status
+This project is still in early development.
+
+## Roadmap - First stable Release
+- [ ] a complete Solution - Container maybe?
+- [ ] JWT Auth Flow (in relation to Backend) / User Accounts
+
+## License
+GPL-3.0

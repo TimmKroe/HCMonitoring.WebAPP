@@ -34,6 +34,7 @@
 
                 </div>
 
+
                 <div class="absolute bottom-0 right-0">
                     <div v-for="(alert, i) in this.notifications" :key="i" class="w-full pr-2">
                         <Alert :title="alert.title" :status="alert.status" :statustype="alert.statustype" :msg="alert.msg"/>
@@ -41,7 +42,7 @@
                 </div>
 
 
-                <div class="container mx-auto mt-20 md:p-10">
+                <div class="container mx-auto mt-20 px-2 md:p-10">
 
                     <router-view>
 

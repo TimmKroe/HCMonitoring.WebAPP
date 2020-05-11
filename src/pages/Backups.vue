@@ -3,8 +3,8 @@
         <PageHeader title="Backups"/>
 
         <div class="flex flex-col">
-            <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 pb-5">
-                <div class="align-middle inline-block min-w-full shadow-lg overflow-hidden sm:rounded-lg border-b border-gray-200">
+            <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 pb-5 hidden md:block">
+                <div class="align-middle inline-block min-w-full shadow-md overflow-hidden sm:rounded-md border-b border-gray-200">
                     <table class="min-w-full">
                         <thead>
                         <tr>
@@ -33,7 +33,9 @@
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                                 <div class="flex items-center">
                                     <div class="ml-4">
-                                        <div class="text-sm leading-5 font-medium text-gray-900">Backup 2020-04-20T14:06:37.011932+00:00</div>
+                                        <div class="text-sm leading-5 font-medium text-gray-900">Backup
+                                            2020-04-20T14:06:37.011932+00:00
+                                        </div>
                                         <div class="text-sm leading-5 text-gray-500">Ubuntu 16.04 Standard 64 bit</div>
                                     </div>
                                 </div>
@@ -48,7 +50,7 @@
                               </span>
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
-                                <Link :link="'servers/1'" text="box.timmkroe.de" />
+                                <Link :link="'servers/1'" text="box.timmkroe.de"/>
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
                                 2020-04-20T14:06:37+00:00
@@ -59,8 +61,19 @@
                         </tr>
                         </tbody>
                     </table>
+
+
                 </div>
             </div>
+
+            <div v-for="(backup, i) in 10" :key="i" class="md:hidden">
+                <div class="bg-white shadow-lg rounded-md p-5 m-2 flex items-center justify-between border-b">
+                <span class="text-2xl">
+                    test
+                </span>
+                </div>
+            </div>
+
         </div>
 
     </div>
@@ -69,6 +82,7 @@
 <script>
     import PageHeader from "@/components/PageHeader";
     import Link from "@/components/Link";
+
     export default {
         name: "Backups",
         components: {Link, PageHeader}
