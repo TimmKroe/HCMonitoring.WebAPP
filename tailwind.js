@@ -3,6 +3,9 @@ module.exports = {
     extend: {},
     opacity: {
       '10': '.1'
+    },
+    minHeight: {
+      'footer': '40rem'
     }
   },
   variants: {},

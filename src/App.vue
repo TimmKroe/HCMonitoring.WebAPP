@@ -44,9 +44,12 @@
 
                 <div class="container mx-auto mt-20 px-2 md:p-10">
 
-                    <router-view>
+                    <div class="min-h-footer">
+                        <router-view>
 
-                    </router-view>
+                        </router-view>
+                    </div>
+
 
                     <Footer/>
 
