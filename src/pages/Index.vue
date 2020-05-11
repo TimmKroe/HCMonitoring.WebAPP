@@ -104,7 +104,7 @@
 
 <script>
     import WhiteTagComponent from "@/components/tags/ServerTypeTag";
-    import PageHeaderDashboard from "@/components/PageHeaderDashboard";
+    import PageHeaderDashboard from "@/components/PageHeaders/PageHeaderViewSwitcher";
     import {mapGetters} from "vuex";
 
     export default {

@@ -78,7 +78,7 @@
 </template>
 
 <script>
-    import PageHeader from "@/components/PageHeader";
+    import PageHeader from "@/components/PageHeaders/PageHeaderText";
     import Link from "@/components/Link";
     export default {
         name: "Backups",

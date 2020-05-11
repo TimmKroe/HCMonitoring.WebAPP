@@ -52,7 +52,7 @@
 </template>
 
 <script>
-    import PageHeader from "@/components/PageHeader";
+    import PageHeader from "@/components/PageHeaders/PageHeaderText";
     import ServerTableEntry from "@/pages/serverManagement/ServerTableEntry";
     export default {
         name: "SrvManagement",

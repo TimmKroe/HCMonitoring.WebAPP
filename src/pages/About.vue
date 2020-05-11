@@ -56,7 +56,7 @@
 </template>
 
 <script>
-    import PageHeader from "@/components/PageHeader";
+    import PageHeader from "@/components/PageHeaders/PageHeaderText";
 
     export default {
         name: "About",

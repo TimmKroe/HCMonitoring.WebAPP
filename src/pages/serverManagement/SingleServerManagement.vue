@@ -1,6 +1,6 @@
 <template>
     <div>
-        <PageHeader title="Settings for Servername" save-button="Save"/>
+        <PageHeader title="Settings for Servername"/>
 
 
         <div class="bg-white shadow overflow-hidden sm:rounded-lg">
@@ -55,7 +55,7 @@
 
 <script>
 
-    import PageHeader from "@/components/PageHeader";
+    import PageHeader from "@/components/PageHeaders/PageHeaderSaveCancel";
     export default {
         name: "SingleServerManagement",
         components: {PageHeader},

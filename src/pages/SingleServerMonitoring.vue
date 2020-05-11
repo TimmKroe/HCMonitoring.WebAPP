@@ -1,7 +1,7 @@
 <template>
     <div class="">
 
-        <PageHeader title="Server XYZ" :server-status-button="true" :server-status-button-status="'running'"/>
+        <PageHeader title="Server XYZ" status="running"/>
 
         <ServerTypeTag server_type="CPX11"/>
         <ServerTypeTag server_type="Ubuntu 18.04"/>
@@ -138,7 +138,7 @@
 </template>
 
 <script>
-    import PageHeader from "@/components/PageHeader";
+    import PageHeader from "@/components/PageHeaders/PageHeaderStatus";
     import ServerTypeTag from "@/components/tags/ServerTypeTag";
     import Link from "@/components/Link";
 

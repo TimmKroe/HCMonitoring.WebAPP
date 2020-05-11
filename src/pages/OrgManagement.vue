@@ -1,7 +1,7 @@
 <template>
     <div>
 
-        <PageHeader title="Organization Management" :save-button="true"/>
+        <PageHeader title="Organization Management"/>
 
         <div class="bg-white shadow overflow-hidden sm:rounded-lg">
             <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
@@ -84,7 +84,7 @@
 
 <script>
     import Zondicon from 'vue-zondicons';
-    import PageHeader from "@/components/PageHeader";
+    import PageHeader from "@/components/PageHeaders/PageHeaderSaveCancel";
     export default {
         name: "OrgManagement",
         components: {
