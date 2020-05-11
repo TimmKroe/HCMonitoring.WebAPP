@@ -1,25 +1,15 @@
 <template>
-
     <div>
-        <PageHeader title="Manage ServerName"/>
+        <PageHeader title="Settings for Servername" save-button="Save"/>
+
 
         <div class="bg-white shadow overflow-hidden sm:rounded-lg">
-            <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
-                <h3 class="text-lg leading-6 font-medium text-gray-900">
-                    ServerName
-                </h3>
-                <p class="mt-1 max-w-2xl text-sm leading-5 text-gray-500">
-                    Ubuntu 16.04 Standard 64 bit
-                </p>
-                <div class="relative">
-                    <WhiteTagComponent class="absolute bottom-0 right-0" server_type="CPX11"/>
-                </div>
-            </div>
+
             <div>
                 <dl>
                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt class="text-sm leading-5 font-medium text-gray-500 align-middle">
-                            Monitored?
+                        <dt class="text-sm leading-5 font-medium text-gray-500">
+                            Public visible?
                         </dt>
                         <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
                             <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
@@ -35,9 +25,9 @@
                             </div>
                         </dd>
                     </div>
-                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt class="text-sm leading-5 font-medium text-gray-500 align-middle">
-                            Visible?
+                    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm leading-5 font-medium text-gray-500">
+                            Monitored?
                         </dt>
                         <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
                             <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
@@ -56,17 +46,19 @@
                 </dl>
             </div>
         </div>
-    </div>
 
+
+
+
+    </div>
 </template>
 
 <script>
-    import PageHeader from "@/components/PageHeader";
-    import WhiteTagComponent from "@/components/tags/ServerTypeTag";
 
+    import PageHeader from "@/components/PageHeader";
     export default {
         name: "SingleServerManagement",
-        components: {WhiteTagComponent, PageHeader}
+        components: {PageHeader},
     }
 </script>
 
