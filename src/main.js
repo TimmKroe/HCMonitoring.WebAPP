@@ -8,8 +8,8 @@ import store from './store'
 import IndexPage from '@/pages/Index';
 import LoginPage from "@/pages/Login";
 import OrgManagementPage from "@/pages/OrgManagement";
-import SrvManagementPage from "@/pages/SrvManagement";
-import SingleServerManagementPage from "@/pages/SingleServerManagement";
+import SrvManagementPage from "@/pages/serverManagement/SrvManagement";
+import SingleServerManagementPage from "@/pages/serverManagement/SingleServerManagement";
 import SingleServerMonitoringPage from "@/pages/SingleServerMonitoring";
 import AboutPage from "@/pages/About";
 import BackupsPage from "@/pages/Backups";
