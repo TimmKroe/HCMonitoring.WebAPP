@@ -7,6 +7,9 @@ The API Backend is [here](https://github.com/TimmKroe/HCMonitoring.WebAPI).
 ## Installation
 TODO
 
+## IssueTracker
+For development I use Youtrack located [here](https://youtrack.timmkroe.de/youtrack/agiles/100-26/101-28). If you have any problems with the software or requests please still use the Github Issue Tracker.
+
 ## Support
 The first thing you should do if you have any issue with the software is looking into the issues tab.
 If there is no solution to your problem create your own issue.
