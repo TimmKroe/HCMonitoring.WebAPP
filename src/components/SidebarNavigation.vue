@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col w-full md:w-64 text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 flex-shrink-0 shadow-lg md:fixed md:left-0 md:bottom-0 md:top-0"
+    <div class="flex flex-col w-full md:w-64 text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800 flex-shrink-0  md:fixed md:left-0 md:bottom-0 md:top-0"
          x-data="{ open: false }">
         <div class="flex-shrink-0 px-8 py-4 flex flex-row items-center justify-between">
             <a class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline"
@@ -25,7 +25,7 @@
                    href="/">Dashboard</a>
                 <div class="relative" x-data="{ serverOpen: false }">
                     <button @click="serverOpen = !serverOpen"
-                            class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                            class="block px-4 py-2 mt-2 text-base font-bold text-gray-900 rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
                         Servers
                         <svg :class="{'rotate-180': serverOpen, 'rotate-0': !serverOpen}"
                              class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"
@@ -61,12 +61,51 @@
 
 
             <div class="border-t-2">
-                <a :class="$route.path === '/org-management' ? 'bg-gray-200 dark-mode:bg-gray-700' : 'bg-transparent dark-mode:bg-transparent'"
-                   class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                   href="/org-management">ORG Management</a>
-                <a :class="$route.path === '/srv-management' ? 'bg-gray-200 dark-mode:bg-gray-700' : 'bg-transparent dark-mode:bg-transparent'"
-                   class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                   href="/srv-management">SRV Management</a>
+
+                <div class="relative" x-data="{ orgXYZ: false }">
+                    <button @click="orgXYZ = !orgXYZ"
+                            class="block px-4 py-2 mt-2 text-base font-bold text-gray-900 rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                        Admin Center
+                        <svg :class="{'rotate-180': orgXYZ, 'rotate-0': !orgXYZ}"
+                             class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"
+                             fill="currentColor"
+                             viewBox="0 0 20 20">
+                            <path clip-rule="evenodd"
+                                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                  fill-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <div v-if="orgXYZ">
+                        <a :class="$route.path === '/org-management' ? 'bg-gray-200 dark-mode:bg-gray-700' : 'bg-transparent dark-mode:bg-transparent'"
+                           class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                           href="/org-management">ORG Management</a>
+                        <a :class="$route.path === '/srv-management' ? 'bg-gray-200 dark-mode:bg-gray-700' : 'bg-transparent dark-mode:bg-transparent'"
+                           class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                           href="/srv-management">SRV Management</a>
+                    </div>
+                </div>
+
+                <div class="relative" x-data="{ orgWIDE: false }">
+                    <button @click="orgWIDE = !orgWIDE"
+                            class="block px-4 py-2 mt-2 text-base font-bold text-gray-900 rounded-lg dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                        Instance Center
+                        <svg :class="{'rotate-180': orgWIDE, 'rotate-0': !orgWIDE}"
+                             class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"
+                             fill="currentColor"
+                             viewBox="0 0 20 20">
+                            <path clip-rule="evenodd"
+                                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                  fill-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <div v-if="orgWIDE">
+                        <a :class="$route.path === '/org-management' ? 'bg-gray-200 dark-mode:bg-gray-700' : 'bg-transparent dark-mode:bg-transparent'"
+                           class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                           href="/instance/organizations">Organizations</a>
+                    </div>
+                </div>
+
+
             </div>
         </nav>
         <div class="flex-shrink-0 pl-4 pr-8 py-4 items-center  border-t-2">
@@ -108,6 +147,8 @@
             return {
                 open: true,
                 serverOpen: false,
+                orgXYZ: false,
+                orgWIDE: false,
             }
         },
         methods: {
