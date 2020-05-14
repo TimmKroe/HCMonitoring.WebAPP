@@ -14,6 +14,7 @@ import SingleServerMonitoringPage from "@/pages/SingleServerMonitoring";
 import AboutPage from "@/pages/About";
 import BackupsPage from "@/pages/Backups";
 import SnapshotsPage from "@/pages/Snapshots";
+import ProfilePage from "@/pages/Profile";
 
 import ErrorSiteNotFoundPage from "@/pages/SiteNotFound";
 
@@ -23,6 +24,7 @@ Vue.use(VueRouter);
 const routes = [
   { path: '/', component: IndexPage },
   { path: '/about', exact: true, component: AboutPage },
+  { path: '/profile', exact: true, component: ProfilePage},
   { path: '/servers/:id', exact: true, component: SingleServerMonitoringPage },
   { path: '/backups', exact: true, component: BackupsPage },
   { path: '/snapshots', exact: true, component: SnapshotsPage },
