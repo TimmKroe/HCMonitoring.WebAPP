@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test": "echo no tests"
+    "unit": "echo no tests"
   },
   "dependencies": {
     "core-js": "^3.6.4",
