@@ -4,8 +4,6 @@ It is built on top of the Hetzner Cloud API, has a VueJS Frontend with TailwindC
 
 The API Backend is [here](https://github.com/TimmKroe/HCMonitoring.WebAPI).
 
-This Repo is mirrored from: https://gitlab.com/timmkroe/HCMonitoring-WebAPP
-
 ## Installation
 TODO
 
